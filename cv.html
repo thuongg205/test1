@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Nguyễn Văn A</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .header .title {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            padding: 30px;
+            gap: 30px;
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            height: fit-content;
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3498db;
+        }
+
+        .skill-item {
+            margin-bottom: 12px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2c3e50);
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .info-list i {
+            color: #3498db;
+            width: 18px;
+            text-align: center;
+            margin-top: 2px;
+        }
+
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .main-area {
+            min-width: 0;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #eee;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #3498db;
+        }
+
+        .job {
+            margin-bottom: 24px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .job-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .job-company {
+            color: #3498db;
+            font-weight: 500;
+        }
+
+        .job-date {
+            color: #777;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .job-desc {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        .job-desc ul {
+            margin-top: 8px;
+            padding-left: 20px;
+        }
+
+        .job-desc li {
+            margin-bottom: 4px;
+        }
+
+        .education-item {
+            margin-bottom: 16px;
+        }
+
+        .edu-degree {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .edu-school {
+            color: #3498db;
+            font-size: 0.95rem;
+        }
+
+        .edu-date {
+            color: #777;
+            font-size: 0.85rem;
+        }
+
+        .project-item {
+            margin-bottom: 16px;
+            padding: 16px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 3px solid #3498db;
+        }
+
+        .project-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .project-tech {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 6px;
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .cert-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cert-name {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .cert-date {
+            color: #777;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                gap: 12px;
+            }
+        }
+
+        @media print {
+            body { background: white; }
+            .container { box-shadow: none; margin: 0; }
+            .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>NGUYỄN VĂN A</h1>
+            <div class="title">Senior Fullstack Developer</div>
+            <div class="contact-info">
+                <span>📞 090 123 4567</span>
+                <span>✉️ nguyenvana@email.com</span>
+                <span>📍 Hà Nội, Việt Nam</span>
+                <span>🔗 linkedin.com/in/nguyenvana</span>
+                <span>💻 github.com/nguyenvana</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="section-block">
+                    <div class="section-title">Kỹ năng</div>
+
+                    <div class="skill-item">
+                        <div class="skill-name"><span>JavaScript / TypeScript</span><span>95%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 95%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>React / Next.js</span><span>90%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 90%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>Node.js / Express</span><span>85%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 85%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>PostgreSQL / MongoDB</span><span>80%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>Docker / Kubernetes</span><span>75%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 75%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name"><span>AWS / GCP</span><span>70%</span></div>
+                        <div class="skill-bar"><div class="skill-fill" style="width: 70%"></div></div>
+                    </div>
+                </div>
+
+                <div class="section-block" style="margin-top: 24px;">
+                    <div class="section-title">Ngôn ngữ</div>
+                    <div class="lang-item"><span>Tiếng Việt</span><span>Bản ngữ</span></div>
+                    <div class="lang-item"><span>Tiếng Anh</span><span>IELTS 7.0</span></div>
+                    <div class="lang-item"><span>Tiếng Nhật</span><span>N3</span></div>
+                </div>
+
+                <div class="section-block" style="margin-top: 24px;">
+                    <div class="section-title">Liên hệ</div>
+                    <ul class="info-list">
+                        <li><i>📧</i><span>nguyenvana@email.com</span></li>
+                        <li><i>📱</i><span>090 123 4567</span></li>
+                        <li><i>🏠</i><span>Hà Nội, Việt Nam</span></li>
+                        <li><i>🔗</i><span>linkedin.com/in/nguyenvana</span></li>
+                        <li><i>💻</i><span>github.com/nguyenvana</span></li>
+                    </ul>
+                </div>
+
+                <div class="section-block" style="margin-top: 24px;">
+                    <div class="section-title">Sở thích</div>
+                    <ul class="info-list">
+                        <li><i>⚽</i><span>Thể thao: Bóng đá, Cầu lông</span></li>
+                        <li><i>📚</i><span>Đọc sách công nghệ, Sách kinh doanh</span></li>
+                        <li><i>✈️</i><span>Du lịch, Khám phá ẩm thực</span></li>
+                        <li><i>💻</i><span>Open source, Side projects</span></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <main class="main-area">
+                <section class="section">
+                    <h2>Mục tiêu nghề nghiệp</h2>
+                    <p style="color: #555; font-size: 1rem; line-height: 1.7;">
+                        Lập trình viên Fullstack với 6+ năm kinh nghiệm phát triển ứng dụng web quy mô lớn.
+                        Chuyên môn mạnh về React, Node.js, và kiến trúc microservices.
+                        Đã lãnh đạo team 5-8 developers, giao hàng thành công 10+ dự án enterprise.
+                        Tìm kiếm vị trí Tech Lead / Engineering Manager để đóng góp chuyên môn và kỹ năng lãnh đạo.
+                    </p>
+                </section>
+
+                <section class="section">
+                    <h2>Kinh nghiệm làm việc</h2>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Tech Lead / Senior Fullstack Developer</div>
+                                <div class="job-company">Công ty TNHH TechCorp Vietnam</div>
+                            </div>
+                            <div class="job-date">03/2021 - Nay</div>
+                        </div>
+                        <div class="job-desc">
+                            <ul>
+                                <li>Lãnh đạo team 6 developers, quản lý toàn bộ vòng đời SDLC cho 3 sản phẩm core</li>
+                                <li>Kiến trúc lại hệ thống từ monolith sang microservices, giảm 40% latency API</li>
+                                <li>Thiết lập CI/CD pipeline với GitLab CI, Docker, Kubernetes - deploy tự động hàng ngày</li>
+                                <li>Mentor junior developers, tổ chức code review, tech sharing hàng tuần</li>
+                                <li>Hợp tác trực tiếp với Product Manager, Designer để định nghĩa spec và ưu tiên backlog</li>
+                                <li>Công nghệ: React, Next.js, Node.js, TypeScript, PostgreSQL, Redis, RabbitMQ, AWS, Kubernetes</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Fullstack Developer</div>
+                                <div class="job-company">FPT Software</div>
+                            </div>
+                            <div class="job-date">06/2018 - 02/2021</div>
+                        </div>
+                        <div class="job-desc">
+                            <ul>
+                                <li>Phát triển và maintain 5 dự án outsourcing cho khách hàng Nhật Bản, Âu Mỹ</li>
+                                <li>Xây dựng RESTful API, GraphQL cho các hệ thống E-commerce, CRM, HRM</li>
+                                <li>Tối ưu hiệu suất database: giảm thời gian query từ 2s xuống 200ms</li>
+                                <li>Triển khai unit test, integration test (Jest, Cypress) - coverage > 85%</li>
+                                <li>Làm việc môi trường Agile/Scrum, giao tiếp tiếng Nhật cơ bản với client</li>
+                                <li>Công nghệ: Vue.js, Nuxt.js, Java Spring Boot, MySQL, Redis, Docker, Jenkins</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Junior Frontend Developer</div>
+                                <div class="job-company">Startup ABC (Công ty khởi nghiệp)</div>
+                            </div>
+                            <div class="job-date">01/2017 - 05/2018</div>
+                        </div>
+                        <div class="job-desc">
+                            <ul>
+                                <li>Xây dựng UI/UX responsive cho platform ed-tech phục vụ 50k+ users</li>
+                                <li>Chuyển đổi thiết kế Figma sang HTML/CSS/JS pixel-perfect</li>
+                                <li>Tích hợp payment gateway (VNPay, MoMo, Stripe)</li>
+                                <li>Học hỏi và áp dụng React, Redux, Webpack trong production</li>
+                                <li>Công nghệ: HTML5, CSS3 (Sass), JavaScript ES6+, React, Redux, Git</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>Giáo dục</h2>
+
+                    <div class="education-item">
+                        <div class="edu-degree">Thạc sĩ Khoa học Máy tính</div>
+                        <div class="edu-school">Đại học Bách Khoa Hà Nội (HUST)</div>
+                        <div class="edu-date">09/2015 - 06/2017 | GPA: 3.6/4.0</div>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="edu-degree">Cử nhân Kỹ thuật Máy tính</div>
+                        <div class="edu-school">Đại học Công nghệ Thông tin (UIT)</div>
+                        <div class="edu-date">09/2011 - 06/2015 | GPA: 3.4/4.0</div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>Dự án tiêu biểu</h2>
+
+                    <div class="project-item">
+                        <div class="project-name">Hệ thống quản lý chuỗi cung ứng (Supply Chain Management)</div>
+                        <div class="project-tech">React, Node.js, PostgreSQL, Kubernetes, AWS</div>
+                        <div class="project-desc">Xây dựng platform B2B quản lý đơn hàng, kho hàng, logistics cho 100+ doanh nghiệp. Xử lý 10k+ đơn/ngày, tích hợp IoT tracking real-time.</div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-name">Nền tảng E-learning đa ngôn ngữ</div>
+                        <div class="project-tech">Next.js, NestJS, MongoDB, Redis, Docker</div>
+                        <div class="project-desc">Hệ thống học trực tuyến hỗ trợ 5 ngôn ngữ, video streaming, quiz adaptive. 200k+ registered users, 99.9% uptime.</div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-name">Dashboard Analytics Real-time</div>
+                        <div class="project-tech">React, TypeScript, WebSocket, ClickHouse, Grafana</div>
+                        <div class="project-desc">Bảng điều khiển giám sát metrics real-time cho team operation. Xử lý 1M+ events/ngày, alert tự động qua Slack/Email.</div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>Chứng chỉ & Giải thưởng</h2>
+
+                    <div class="cert-item">
+                        <span class="cert-name">AWS Certified Solutions Architect - Associate</span>
+                        <span class="cert-date">2023</span>
+                    </div>
+                    <div class="cert-item">
+                        <span class="cert-name">Certified Kubernetes Administrator (CKA)</span>
+                        <span class="cert-date">2022</span>
+                    </div>
+                    <div class="cert-item">
+                        <span class="cert-name">Scrum Master Certified (SMC)</span>
+                        <span class="cert-date">2021</span>
+                    </div>
+                    <div class="cert-item">
+                        <span class="cert-name">Giải Nhất Cuộc thi Hackathon Việt Nam</span>
+                        <span class="cert-date">2020</span>
+                    </div>
+                    <div class="cert-item">
+                        <span class="cert-name">Nhân viên xuất sắc năm - FPT Software</span>
+                        <span class="cert-date">2019</span>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
